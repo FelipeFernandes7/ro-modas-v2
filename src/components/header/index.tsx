@@ -46,7 +46,7 @@ export function Header() {
         handleCloseSidebar={handleCloseMenu}
         openSidebar={openSidebar}
       >
-        <section className="flex flex-col w-full gap-6 ml-4">
+        <section className="flex flex-col w-full gap-6">
           <Path text={"Home"} href={"/"} Icon={FaHome} />
           <Path text={"Modas"} href={"/fashion"} Icon={FaShirt} />
           <Path text={"Produto"} href={"/product"} Icon={FaShoppingBag} />
