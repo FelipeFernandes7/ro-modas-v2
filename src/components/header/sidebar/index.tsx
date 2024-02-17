@@ -18,7 +18,7 @@ export function Sidebar({
   children,
 }: SidebarProps) {
   const styles = {
-    width: !openSidebar ? "0" : "350px",
+    width: !openSidebar ? "0" : "300px",
     transition: "width 0.3s ease-in-out",
   };
   return (
