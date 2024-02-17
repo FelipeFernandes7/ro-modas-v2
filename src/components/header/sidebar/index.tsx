@@ -31,8 +31,7 @@ export function Sidebar({
       </button>
       <nav
         style={styles}
-        className="flex-col h-screen bg-neutral-800 fixed top-0 right-0 z-20 transition-transform duration-300 ease-in-out transform translate-x-0 rounded-tr-3xl rounded-l-2xl"
-      >
+        className="flex-col h-screen bg-neutral-800 fixed top-0 right-0 z-20 transition-transform duration-300 ease-in-out transform translate-x-0 >
         <button
           className="z-50 absolute top-2 left-2 text-white"
           onClick={handleCloseSidebar}
