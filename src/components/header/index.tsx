@@ -18,7 +18,7 @@ export function Header() {
   };
 
   return (
-    <header className="w-full flex items-center justify-between px-4 md:px-6 h-20 md:h-24 bg-neutral-800 shadow-md relative">
+    <header className="w-full flex items-center justify-between px-4 md:px-6 h-20 md:h-24 shadow-md relative">
       <section className="flex items-center gap-2">
         <Link
           className="bg-gradient-to-t from-[#ff00ff] to-[#ffb199] bg-clip-text text-transparent inline-block"
