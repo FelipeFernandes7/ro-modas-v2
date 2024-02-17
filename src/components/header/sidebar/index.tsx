@@ -18,27 +18,28 @@ export function Sidebar({
   children,
 }: SidebarProps) {
   const styles = {
-    width: !openSidebar ? "0" : "300px",
+    width: !openSidebar ? "0" : "280px",
     transition: "width 0.3s ease-in-out",
   };
   return (
     <div className="md:hidden relative h-full w-full">
       <button
         onClick={handleOpenSidebar}
-        className="text-3xl text-white absolute top-4 right-4"
+        className="text-3xl text-white absolute top-6 right-4"
       >
         <HiMenu />
       </button>
       <nav
         style={styles}
-        className="flex-col h-screen bg-neutral-800 fixed top-0 right-0 z-20 transition-transform duration-300 ease-in-out transform translate-x-0 >
+        className="flex-col h-screen bg-neutral-900 fixed top-0 right-0 z-20 transition-transform duration-300 ease-in-out transform translate-x-0 rounded-tl-3xl"
+      >
         <button
           className="z-50 absolute top-2 left-2 text-white"
           onClick={handleCloseSidebar}
         >
           <IoClose className="text-3xl" />
         </button>
-        <div className="h-36 bg-gradient-to-t from-[#ff00ff] to-[#ffb199] rounded-tl-2xl border-b-2 border-b-neutral-600">
+        <div className="rounded-tl-3xl h-36 bg-gradient-to-r from-[#ff00ff] to-[#ffb199] shadow-md">
           <div className=" flex w-full h-full gap-2 items-center px-4">
             <Image
               className="rounded-full object-cover h-10 w-10"
