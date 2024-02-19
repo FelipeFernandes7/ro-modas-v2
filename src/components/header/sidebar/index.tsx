@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { HiMenu } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
 import avatar from "@/assets/code steam.jpg";
 import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
 interface SidebarProps {
   handleOpenSidebar: () => void;
   handleCloseSidebar: () => void;
@@ -17,12 +17,31 @@ export function Sidebar({
   openSidebar,
   children,
 }: SidebarProps) {
+  const sidebarRef = useRef<HTMLDivElement>(null);
   const styles = {
     width: !openSidebar ? "0" : "280px",
     transition: "width 0.3s ease-in-out",
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        openSidebar
+      ) {
+        handleCloseSidebar();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openSidebar, handleCloseSidebar]);
+
   return (
-    <div className="md:hidden relative h-full w-full">
+    <div ref={sidebarRef} className="md:hidden relative h-full w-full">
       <button
         onClick={handleOpenSidebar}
         className="text-3xl text-white absolute top-6 right-4"
@@ -37,9 +56,9 @@ export function Sidebar({
           className="z-50 absolute top-2 left-2 text-white"
           onClick={handleCloseSidebar}
         >
-          <IoClose className="text-3xl" />
+          <IoIosArrowBack className="text-2xl" />
         </button>
-        <div className="rounded-tl-3xl h-36 bg-gradient-to-r from-[#ff00ff] to-[#ffb199] shadow-md">
+        <div className="h-36 bg-fuchsia-400  shadow-md">
           <div className=" flex w-full h-full gap-2 items-center px-4">
             <Image
               className="rounded-full object-cover h-10 w-10"

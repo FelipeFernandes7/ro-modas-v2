@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaHome, FaShoppingBag, FaVestPatches } from "react-icons/fa";
+import { FaVestPatches } from "react-icons/fa";
 import { Sidebar } from "./sidebar";
 import { Path } from "./path";
-import { FaCartShopping, FaShirt } from "react-icons/fa6";
+import { paths } from "@/constants/paths";
 
 export function Header() {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const hoverLink =
+    "hover:text-fuchsia-400 transition-all duration-300 hover:underline";
+
   const handleOpenSidebar = () => {
     setOpenSidebar(true);
   };
@@ -24,7 +27,7 @@ export function Header() {
           className="bg-gradient-to-t from-[#ff00ff] to-[#ffb199] bg-clip-text text-transparent inline-block"
           href={"/"}
         >
-          <FaVestPatches className="transition-all duration-300 text-[#ff00ff] hover:text-[#ffb199] text-xl md:text-2xl" />
+          <FaVestPatches className="transition-all duration-300 text-white hover:text-fuchsia-400 text-xl md:text-2xl" />
         </Link>
         <h1 className="text-xl font-bold whitespace-nowrap md:text-3xl bg-gradient-to-t from-[#ff00ff] to-[#ffb199] bg-clip-text text-transparent">
           RÔ MODAS
@@ -32,11 +35,12 @@ export function Header() {
       </section>
       <div className="hidden md:block">
         <section className="flex items-center gap-4 font-medium text-lg">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/fashion"}>Modas</Link>
-          <Link href={"/product"}>Produto</Link>
-          <Link href={"/cart"}>Carrinho</Link>
-          <button className="bg-gradient-to-t from-[#ff00ff] to-[#ffb199] h-12 w-24 font-medium rounded-md text-sm">
+          {paths.map((path) => (
+            <Link key={path.text} className={hoverLink} href={path.href}>
+              {path.text}
+            </Link>
+          ))}
+          <button className="bg-gradient-to-t from-[#ff00ff] to-[#ffb199] h-10 w-24 rounded-md text-sm font-bold transition-all duration-300 hover:opacity-80">
             Entrar
           </button>
         </section>
@@ -47,10 +51,9 @@ export function Header() {
         openSidebar={openSidebar}
       >
         <section className="flex flex-col w-full gap-6">
-          <Path text={"Home"} href={"/"} Icon={FaHome} />
-          <Path text={"Modas"} href={"/fashion"} Icon={FaShirt} />
-          <Path text={"Produto"} href={"/product"} Icon={FaShoppingBag} />
-          <Path text={"Carrinho"} href={"/cart"} Icon={FaCartShopping} />
+          {paths.map((path) => (
+            <Path text={path.text} href={path.href} Icon={path.icon} />
+          ))}
         </section>
       </Sidebar>
     </header>
