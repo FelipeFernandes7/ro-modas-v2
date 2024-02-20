@@ -18,7 +18,7 @@ export function ProductCard({
   price,
 }: ProductCardProps) {
   return (
-    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[300px] hover:scale-105 transition-all duration-300">
+    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[300px] hover:scale-105 transition-all duration-300 shadow-md">
       <section className="w-full h-32 bg-black rounded-t-md">
         <h1 className="text-white">{name}</h1>
       </section>
