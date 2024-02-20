@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={kumbh.className}>
         <Header />
-        {children}
+        <div className="w-full h-screen py-20">{children}</div>
       </body>
     </html>
   );

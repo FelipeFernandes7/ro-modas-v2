@@ -12,10 +12,10 @@ export function Path({ text, href, Icon }: PathProps) {
   return (
     <div
       className={`flex items-center gap-4 w-full ${
-        pathname === href ? "text-fuchsia-400" : "text-white"
+        pathname === href ? "text-fuchsia-400" : "text-black"
       }`}
     >
-      {Icon && <Icon className={" font-bold text-xl"} />}
+      {Icon && <Icon className={"font-semibold text-xl"} />}
       <Link className="text-lg" href={href}>
         {text}
       </Link>

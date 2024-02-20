@@ -4,6 +4,7 @@ import { HiMenu } from "react-icons/hi";
 import avatar from "@/assets/code steam.jpg";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
+
 interface SidebarProps {
   handleOpenSidebar: () => void;
   handleCloseSidebar: () => void;
@@ -19,8 +20,7 @@ export function Sidebar({
 }: SidebarProps) {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const styles = {
-    width: !openSidebar ? "0" : "280px",
-    transition: "width 0.3s ease-in-out",
+    transform: openSidebar ? "translateX(0)" : "translateX(-64rem)",
   };
 
   useEffect(() => {
@@ -41,24 +41,22 @@ export function Sidebar({
   }, [openSidebar, handleCloseSidebar]);
 
   return (
-    <div ref={sidebarRef} className="md:hidden relative h-full w-full">
-      <button
-        onClick={handleOpenSidebar}
-        className="text-3xl text-white absolute top-6 right-4"
-      >
-        <HiMenu />
+    <div ref={sidebarRef} className="flex">
+      <button onClick={handleOpenSidebar}>
+        <HiMenu className="text-zinc-400 text-3xl font-bold" />
       </button>
-      <nav
+
+      <div
+        className={`fixed inset-y-0 left-0 w-64 bg-zinc-100 shadow-md transform transition-transform ease-in-out duration-300`}
         style={styles}
-        className="flex-col h-screen bg-neutral-900 fixed top-0 right-0 z-20 transition-transform duration-300 ease-in-out transform translate-x-0 rounded-tl-3xl"
       >
-        <button
-          className="z-50 absolute top-2 left-2 text-white"
-          onClick={handleCloseSidebar}
-        >
-          <IoIosArrowBack className="text-2xl" />
-        </button>
-        <div className="h-36 bg-fuchsia-400  shadow-md">
+        <div className="h-32 shadow-md bg-fuchsia-400 w-full relative ">
+          <button
+            onClick={handleCloseSidebar}
+            className="absolute top-2 right-4"
+          >
+            <IoIosArrowBack className="text-white text-2xl font-bold" />
+          </button>
           <div className=" flex w-full h-full gap-2 items-center px-4">
             <Image
               className="rounded-full object-cover h-10 w-10"
@@ -80,7 +78,7 @@ export function Sidebar({
           </div>
         </div>
         <div className="w-full mt-5 px-3 flex flex-col">{children}</div>
-      </nav>
+      </div>
     </div>
   );
 }
