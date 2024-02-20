@@ -1,11 +1,11 @@
 import { formatPrice } from "@/utils/format";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface ProductCardProps {
   name: string;
   price: number;
   description: string;
-  image: StaticImageData;
+  image: string;
   sizes: string[];
   colors: string[];
 }

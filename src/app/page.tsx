@@ -5,7 +5,7 @@ import { clothes } from "@/data/clothes";
 export default function Home() {
   return (
     <div className="w-full flex flex-col ">
-      <div className="w-full flex items-center justify-center px-4 md:px-0 mb-3">
+      <div className="w-full flex items-center justify-center px-1 md:px-0 mb-3">
         <SearchField />
       </div>
       <h1 className="text-xl font-bold ml-2 mb-2">Produtos</h1>
