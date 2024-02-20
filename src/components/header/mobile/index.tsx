@@ -23,7 +23,7 @@ export function HeaderMobile() {
         handleCloseSidebar={handleCloseMenu}
         openSidebar={openSidebar}
       >
-        <section className="flex flex-col w-full gap-6">
+        <section className="flex flex-col w-full gap-4">
           {paths.map((path) => (
             <Path text={path.text} href={path.href} Icon={path.icon} />
           ))}

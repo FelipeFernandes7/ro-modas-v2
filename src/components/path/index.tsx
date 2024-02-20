@@ -16,7 +16,7 @@ export function Path({ text, href, Icon }: PathProps) {
       }`}
     >
       {Icon && <Icon className={"font-semibold text-xl"} />}
-      <Link className="text-lg" href={href}>
+      <Link className="text-sm" href={href}>
         {text}
       </Link>
     </div>
