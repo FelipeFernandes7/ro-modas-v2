@@ -1,5 +1,6 @@
 import { paths } from "@/data/paths";
 import Link from "next/link";
+import { Path } from "@/components/path";
 import { CiShoppingCart } from "react-icons/ci";
 
 export function HeaderDesktop() {
@@ -12,13 +13,7 @@ export function HeaderDesktop() {
       </h1>
       <div className="flex gap-3 items-center justify-center text-center">
         {paths.map((path) => (
-          <Link
-            className={`${hoverLink} text-md font-semibold`}
-            key={path.text}
-            href={path.href}
-          >
-            {path.text}
-          </Link>
+          <Path key={path.text} href={path.href} text={path.text} />
         ))}
       </div>
       <button className="text-3xl text-zinc-400">
