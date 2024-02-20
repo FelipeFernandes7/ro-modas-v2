@@ -19,7 +19,7 @@ export function ProductCard({
   price,
 }: ProductCardProps) {
   return (
-    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[305px] hover:scale-105 transition-all duration-300 shadow-md cursor-pointer">
+    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[330px] hover:scale-105 transition-all duration-300 shadow-md cursor-pointer">
       <section className="w-full h-32 rounded-t-md relative">
         <Image
           className="w-full h-full object-cover rounded-t-md"
