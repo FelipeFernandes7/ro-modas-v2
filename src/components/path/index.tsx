@@ -15,8 +15,8 @@ export function Path({ text, href, Icon }: PathProps) {
         pathname === href ? "text-fuchsia-400" : "text-zinc-400"
       }`}
     >
-      {Icon && <Icon className={"font-semibold text-xl"} />}
-      <Link className="text-sm font-semibold" href={href}>
+      {Icon && <Icon className={"font-semibold text-2xl"} />}
+      <Link className="text-md font-semibold" href={href}>
         {text}
       </Link>
     </div>

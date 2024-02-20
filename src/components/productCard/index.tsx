@@ -1,4 +1,5 @@
 import { formatPrice } from "@/utils/format";
+import Image from "next/image";
 
 interface ProductCardProps {
   name: string;
@@ -18,12 +19,22 @@ export function ProductCard({
   price,
 }: ProductCardProps) {
   return (
-    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[300px] hover:scale-105 transition-all duration-300 shadow-md">
-      <section className="w-full h-32 bg-black rounded-t-md">
-        <h1 className="text-white">{name}</h1>
+    <div className="w-full flex flex-col items-center bg-zinc-100 rounded-md h-[305px] hover:scale-105 transition-all duration-300 shadow-md cursor-pointer">
+      <section className="w-full h-32 rounded-t-md relative">
+        <Image
+          className="w-full h-full object-cover rounded-t-md"
+          quality={100}
+          width={100}
+          height={100}
+          src={image}
+          alt={name}
+        />
+        <h1 className="text-white font-semibold absolute bottom-1 left-2">
+          {name}
+        </h1>
       </section>
       <div className="w-full p-2 flex flex-col px-2 md:px-4">
-        <p className="text-zinc-900 tracking-tight text-sm w-full">
+        <p className="text-zinc-900 tracking-tight font-semibold text-sm w-full">
           {description}
         </p>
         <div className="flex gap-1 w-full flex-wrap mt-2">
